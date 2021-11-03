@@ -135,4 +135,6 @@ public class GameSetup {
         return false;
     }
 
+    public int getPlayersNo(){return playersNo;}
+
 }
