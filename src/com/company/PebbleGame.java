@@ -9,7 +9,7 @@ public class PebbleGame {
 
     //Player class
     static class Player{
-        private ArrayList<Pebble> playerPebble;
+        private ArrayList<Pebble> playerPebbles;
         private int playerID;
         public Player(int playerID){
             this.playerID = playerID;
@@ -17,6 +17,10 @@ public class PebbleGame {
 
         public void printPlayerID (){
             System.out.println(playerID);
+        }
+
+        public void setPlayerPebbles(ArrayList<Pebble> playerPebbles){
+            this.playerPebbles = playerPebbles;
         }
 
     }
@@ -27,8 +31,6 @@ public class PebbleGame {
         for (int i = 0; i < totalPlayerNumber; i++) {
             Player player = new Player(i);
             playerArrayList.add(player);
-            System.out.println(playerArrayList.get(i));
-            player.printPlayerID();
         }
         return null;
     }
