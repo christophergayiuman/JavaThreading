@@ -91,11 +91,11 @@ public class GameSetup {
 
 
         //Use this code to print out the pebble weights
-
-//        System.out.println(X.getPebbles().get(0).getWeight());
-//        System.out.println(X.toString());
-//        System.out.println(Z.toString());
-//        System.out.println(Y.toString());
+        //github test
+        System.out.println(X.getPebbles().get(0).getWeight());
+        System.out.println(X.toString());
+        System.out.println(Z.toString());
+        System.out.println(Y.toString());
     }
 
     // fills a bag with pebbles
