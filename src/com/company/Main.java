@@ -10,6 +10,7 @@ import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
             //Setting up the game
         String path1 = "src\\com\\company\\ex1.csv";
         String path2 = "src\\com\\company\\ex2.txt";
@@ -24,8 +25,11 @@ public class Main {
         PebbleGame pg = new PebbleGame();
         pg.setTotalPlayerNumber(gs.getPlayersNo());
         pg.createPlayerArray();
+        pg.fillPlayerBag();
 
 
+
+//        System.out.println(pg.getPlayerArrayList().get(0));
 //        PebbleGame.Player players = new PebbleGame.Player(1);
 //        System.out.println("Random generated Number: ");
 //        System.out.print(pg.generateRandomNum(5));
