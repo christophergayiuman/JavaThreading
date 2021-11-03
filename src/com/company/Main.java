@@ -18,7 +18,10 @@ public class Main {
         //gs.startingGameInfo();
         gs.createBags();
 
-
+        PebbleGame pg = new PebbleGame();
+        PebbleGame.Player players = new PebbleGame.Player(1);
+        System.out.println("Randome generated Number: ");
+        System.out.print(pg.generateRandomNum(5));
 
 
     }
