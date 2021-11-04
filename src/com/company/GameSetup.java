@@ -14,7 +14,7 @@ public class GameSetup {
     private String bag0FilePath = "src\\com\\company\\ex1.csv";
     private String bag1FilePath = "src\\com\\company\\ex1.csv";
     private String bag2FilePath = "src\\com\\company\\ex1.csv";
-    private Bag[][] allbags;
+    private ArrayList<ArrayList<Bag>> allbags;
 
 
     public void startingGameInfo() {
@@ -71,6 +71,7 @@ public class GameSetup {
 
     // creates bags
     public void createBags() {
+
         //creates bags
         int bagSize = playersNo * 11;
         Bag A = new Bag();
@@ -91,22 +92,20 @@ public class GameSetup {
         fillBag(Y, readPebbleWeightFile(bag1FilePath));
         fillBag(Z, readPebbleWeightFile(bag2FilePath));
 
-//        ArrayList<Bag> whiteBags = new ArrayList<Bag>();
+        //Fill arraylist with bags
+        ArrayList<ArrayList<Bag>> allBags = new ArrayList<ArrayList<Bag>>();
+        ArrayList<Bag> whiteBags = new ArrayList<Bag>();
+        ArrayList<Bag> blackBags = new ArrayList<Bag>();
 
-        //Create bags array and return them in a nested array
-        Bag[] whiteBags = {A, B, C};
-        Bag[] blackBags = {X, Y, Z};
-        Bag[][] allbags = {whiteBags, blackBags};
-        this.allbags = allbags;
+        whiteBags.add(A); whiteBags.add(B); whiteBags.add(C);
+        blackBags.add(X); blackBags.add(Y); blackBags.add(Z);
+        allBags.add(0,whiteBags);
+        allBags.add(1,blackBags);
 
-        //Use this code to print out the pebble weights
-//        System.out.println(X.getPebbles().get(0).getWeight());
-//        System.out.println(X.toString());
-//        System.out.println(Z.toString());
-//        System.out.println(Y.toString());
+        this.allbags = allBags;
     }
 
-    public Bag[][] getAllbags (){ return allbags; }
+    public ArrayList<ArrayList<Bag>> getAllbags (){ return allbags; }
 
     // fills a bag with pebbles
     public void fillBag(Bag bag, String[] weights) {
