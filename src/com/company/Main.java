@@ -17,19 +17,14 @@ public class Main {
         String path3 = "src\\com\\company\\ex3.csv";
         GameSetup gs = new GameSetup();
         gs.createBags();
-        gs.getAllbags();
 //        gs.startingGameInfo();
-
-        System.out.println(gs.getAllbags().get(0).get(0).getPebbles());
-
-        //Use code below to get the pebble from the bag
-        //System.out.println(gs.getAllbags()[1][0].getPebbles().get(3).getWeight());
-
 
             //Setting up PebbleGame
         PebbleGame pg = new PebbleGame();
         pg.setTotalPlayerNumber(gs.getPlayersNo());
         pg.createPlayerArray();
+        pg.setAllBags(gs.getAllbags());
+
         pg.fillPlayerBag();
 
 
