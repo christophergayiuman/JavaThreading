@@ -31,7 +31,8 @@ public class PebbleGame {
     //Fill player pebble array
     public void fillPlayerBag(){
         for (int i = 0; i < 10; i++) {
-            System.out.println("yo");
+//            System.out.println("yo");
+
         }
     }
 

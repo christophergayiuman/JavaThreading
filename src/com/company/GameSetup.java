@@ -3,6 +3,7 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class GameSetup {
     private String bag0FilePath = "src\\com\\company\\ex1.csv";
     private String bag1FilePath = "src\\com\\company\\ex1.csv";
     private String bag2FilePath = "src\\com\\company\\ex1.csv";
+    private Bag[][] allbags;
 
 
     public void startingGameInfo() {
@@ -89,6 +91,13 @@ public class GameSetup {
         fillBag(Y, readPebbleWeightFile(bag1FilePath));
         fillBag(Z, readPebbleWeightFile(bag2FilePath));
 
+//        ArrayList<Bag> whiteBags = new ArrayList<Bag>();
+
+        //Create bags array and return them in a nested array
+        Bag[] whiteBags = {A, B, C};
+        Bag[] blackBags = {X, Y, Z};
+        Bag[][] allbags = {whiteBags, blackBags};
+        this.allbags = allbags;
 
         //Use this code to print out the pebble weights
 //        System.out.println(X.getPebbles().get(0).getWeight());
@@ -96,6 +105,8 @@ public class GameSetup {
 //        System.out.println(Z.toString());
 //        System.out.println(Y.toString());
     }
+
+    public Bag[][] getAllbags (){ return allbags; }
 
     // fills a bag with pebbles
     public void fillBag(Bag bag, String[] weights) {

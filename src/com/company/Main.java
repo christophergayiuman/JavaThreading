@@ -18,7 +18,13 @@ public class Main {
         GameSetup gs = new GameSetup();
         // hardcoded starting game info for easier testing
         //gs.startingGameInfo();
+
+
+        //Get the weight of the pebble from the bag, arraylist thats returned from createbags
         gs.createBags();
+        gs.getAllbags();
+        //Use code below to get the pebble from the bag
+//        System.out.println(gs.getAllbags()[1][0].getPebbles().get(3).getWeight());
 
 
             //Setting up PebbleGame
