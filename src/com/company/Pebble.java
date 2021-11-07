@@ -1,11 +1,13 @@
 package com.company;
 
 public class Pebble {
-    private final int weight;
+    private int weight;
 
     public int getWeight() {
         return weight;
     }
+
+    public void setWeight(int weight){this.weight = weight;}
 
     public Pebble(int weight) {
         this.weight = weight;

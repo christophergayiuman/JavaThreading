@@ -50,12 +50,34 @@ public class PebbleGame {
     //Fill player pebble array
     public void fillPlayerBag() {
         try {
-            if (!(allBags.isEmpty() && playerArrayList.isEmpty())) {
+//            if (!(allBags.isEmpty() && playerArrayList.isEmpty()))
+            {
+                //Fill up player
+//                All bags first array = [0-1] white bag or black bag, [0-2] second array is the 3 bags of that class
 
+                //Generates a random pebble from
+                int[] randomPebblepath = {1, generateRandomNum(2)};
+                ArrayList<Integer> tempWeightsArray = new ArrayList<Integer>();
 
+                //Prints out current bag
+                System.out.println(allBags.get(randomPebblepath[0]).get(randomPebblepath[1]));
 
+                //Loops through black bag and appends to temp list
+                for (int i = 0; i < 10; i++) {
+                    int randomPebbleNum = generateRandomNum(99 - i);
 
+                    //Prints out the pebble being appended to the terminal
+                    System.out.println("Pebble" + i + " : " +
+                            allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum)).getWeight());
 
+                    //Appends that pebble to the tempWeights Array
+                    tempWeightsArray.add(i, allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum).getWeight());
+
+                    //Removes the pebble from that bags pebble array doesnt work
+//                    allBags.remove(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum));
+
+//                    allBags.remove(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum);
+                }
             }
         } catch (Exception e) {
             System.out.println("There is an error: " + e);
@@ -78,7 +100,6 @@ public class PebbleGame {
         //generate random number
         Random rand = new Random();
         int generatedRandomNumber = rand.nextInt(Upperlimit);
-        generatedRandomNumber += 1;
         return generatedRandomNumber;
     }
 
