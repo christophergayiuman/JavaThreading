@@ -29,10 +29,12 @@ public class Bag {
     //Update bag size.
     public void addPebble(Pebble pebble) {
         pebbles.add(pebble);
+        bagSize +=1;
     }
 
     public void removePebble(Pebble pebble){
         pebbles.remove(pebble);
+        bagSize -=1;
     }
 
     public boolean bagIsEmpty() {

@@ -27,11 +27,6 @@ public class Main {
         pg.fillPlayerHand();
 
 
-        System.out.println();
-        System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
-        pg.discardPebble(0);
-
-
 
 
 
