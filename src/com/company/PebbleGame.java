@@ -59,40 +59,17 @@ public class PebbleGame {
                 for (int i = 0; i < 10; i++) {
                     int randomPebbleNum = generateRandomNum(99 - i);
 
-                    //Prints out the pebble object being appened, into the terminal
-                    System.out.println("Pebble" + i + " : " +
-                            allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum)));
-
-                    System.out.println("Pebble" + i + " : " +
-                            allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum)).getWeight());
-
                     //Appends that pebble to the tempWeights Array
                     tempWeightsHand.add(i, allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum));
+
+                    //Remove the pebble form the origin black blag
+                    allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).removePebble(tempWeightsHand.get(i));
+
                 }
 
-
-
-                //Append to playerhand
-
-
-
-                //Temp pebble bag that has its contents appended
-                ArrayList<Pebble> tempPebbles = new ArrayList<Pebble>();
-                for (int i = 0; i < allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().size(); i++) {
-                    tempPebbles.add(allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(i));
-                }
-
-
-                //Temp pebble bag has its contents removed(the pebbles that were added to the playerhand)
-                for (int i = 0; i < 10; i++) {
-                    tempPebbles.remove(tempWeightsHand.get(i));
-                }
-
-
-                //Need to work on this::
+                //Apending to playerhand
                 playerArrayList.get(0).setPlayerHand(tempWeightsHand);
-                System.out.println(playerArrayList.get(0).getPlayerHand().get(0).getWeight());
-//                System.out.println(playerArrayList.get(0).getPlayerHand().get(0).getWeight());
+
 
             }
         } catch (Exception e) {

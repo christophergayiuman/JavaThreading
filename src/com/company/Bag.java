@@ -30,6 +30,10 @@ public class Bag {
         pebbles.add(pebble);
     }
 
+    public void removePebble(Pebble pebble){
+        pebbles.remove(pebble);
+    }
+
     public boolean bagIsEmpty() {
         return bagSize == 0;
     }
