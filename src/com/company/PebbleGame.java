@@ -46,6 +46,17 @@ public class PebbleGame {
     }
 
     //End of player class
+//
+//    public void removeOldPebbles(ArrayList<Integer> tempWeightsArray, int[] randomPebblePath){
+//        ArrayList<ArrayList<Bag>> tempAllBags = new ArrayList<ArrayList<Bag>>();
+//        tempAllBags = getAllBags();
+//
+//        for (int i = 0; i < tempWeightsArray.size(); i++) {
+//
+//        }
+//
+//
+//    }
 
     //Fill player pebble array
     public void fillPlayerBag() {
@@ -57,27 +68,45 @@ public class PebbleGame {
 
                 //Generates a random pebble from
                 int[] randomPebblepath = {1, generateRandomNum(2)};
-                ArrayList<Integer> tempWeightsArray = new ArrayList<Integer>();
+                ArrayList<Pebble> tempWeightsArray = new ArrayList<Pebble>();
 
                 //Prints out current bag
-                System.out.println(allBags.get(randomPebblepath[0]).get(randomPebblepath[1]));
+//                System.out.println(allBags.get(randomPebblepath[0]).get(randomPebblepath[1]));
 
                 //Loops through black bag and appends to temp list
                 for (int i = 0; i < 10; i++) {
                     int randomPebbleNum = generateRandomNum(99 - i);
 
-                    //Prints out the pebble being appended to the terminal
+                    //Prints out the pebble object being appened, into the terminal
                     System.out.println("Pebble" + i + " : " +
-                            allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum)).getWeight());
+                            allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum)));
 
                     //Appends that pebble to the tempWeights Array
-                    tempWeightsArray.add(i, allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum).getWeight());
-
-                    //Removes the pebble from that bags pebble array doesnt work
-//                    allBags.remove(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum));
-
-//                    allBags.remove(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum);
+                    tempWeightsArray.add(i, allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum));
                 }
+
+
+                //Append the pebbles to the player hand
+
+
+                //Temp pebble bag that has its contents appended
+                ArrayList<Pebble> tempPebbles = new ArrayList<Pebble>();
+                for (int i = 0; i < allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().size(); i++) {
+                    tempPebbles.add(allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(i));
+                }
+
+                System.out.println(tempPebbles.size());
+
+                //Temp pebble bag has its contents removed(the pebbles that were added to the playerhand)
+                for (int i = 0; i < 10; i++) {
+                    tempPebbles.remove(tempWeightsArray.get(i));
+                }
+
+                System.out.println(tempPebbles.size());
+
+
+
+
             }
         } catch (Exception e) {
             System.out.println("There is an error: " + e);
@@ -102,33 +131,6 @@ public class PebbleGame {
         int generatedRandomNumber = rand.nextInt(Upperlimit);
         return generatedRandomNumber;
     }
-
-//    //Function to generate and return random bag name
-//    public String generateRandomBlackBagName (Integer Upperlimit){
-//        //generate random number
-//        Random rand = new Random();
-//        int generatedRandomNumber = rand.nextInt(Upperlimit);
-//        generatedRandomNumber += 1;
-//
-//        //Switch statement to convert from number to bagname
-//        String randomChosenBlackBag;
-//        switch (generatedRandomNumber){
-//            case 1:
-//                randomChosenBlackBag = "X";
-//                break;
-//            case 2:
-//                randomChosenBlackBag = "Y";
-//                break;
-//            case 3:
-//                randomChosenBlackBag = "Z";
-//                break;
-//            default:
-//                throw new IllegalStateException("Unexpected value: " + generatedRandomNumber);
-//        }
-//
-//        return randomChosenBlackBag;
-//    }
-
 
     //Setter methods
     public void setTotalPlayerNumber(int totalPlayerNumber) {
