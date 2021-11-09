@@ -1,6 +1,7 @@
 package com.company;
 
 import java.lang.reflect.Array;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
@@ -60,7 +61,7 @@ public class PebbleGame {
 
                 for (int i  = 0; i < totalPlayerNumber; i++) {
                     //Generates a random pebble from
-                    int[] randomPebblePath = {1, generateRandomNum(2)};
+                    int[] randomPebblePath = {1, generateRandomNum(3)};
                     ArrayList<Pebble> tempWeightsHand = new ArrayList<Pebble>();
 
                     //Loops through black bag and appends to temp list
@@ -81,7 +82,10 @@ public class PebbleGame {
 
                     //Apending to playerhand
                     playerArrayList.get(i).setPlayerHand(tempWeightsHand);
+
+                    System.out.println("origin pebble" + randomPebblePath[0] + " Black bag: " + randomPebblePath[1]);
                 }
+
 
             }
         } catch (Exception e) {
@@ -93,10 +97,12 @@ public class PebbleGame {
     public void discardPebble(int playerID){
         //Change from black bag path to white bag path
         int[] whiteBagPebblePath = {0, playerArrayList.get(playerID).getPlayerPath()[1]};
-        int tempGenerateRandomNum = generateRandomNum(9);
+        int tempGenerateRandomNum = generateRandomNum(10);
 
         //Adds pebble from playerHand to whitebag
         allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).getPebbles().add(playerArrayList.get(playerID).getPlayerHand().get(tempGenerateRandomNum));
+        allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).incrementWhiteBagSize();
+
 
         //Discard pebble from playerHand
         playerArrayList.get(playerID).getPlayerHand().remove(tempGenerateRandomNum);
@@ -104,8 +110,22 @@ public class PebbleGame {
 
     public void getNewPebble(int playerID){
         //Temp newPebblePath
-        int[] tempNewPebblePath= {1, generateRandomNum(2)};
-//        int tempRandomNum = generateRandomNum()
+        int[] tempNewPebblePath= {1, generateRandomNum(3)};
+
+        //Random pebble generate number
+        int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+
+        //Add to playerhand
+        Pebble tempPebble;
+        tempPebble = allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().get(tempGenerateRandomNum);
+
+        //Remove pebble from original bag
+        allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).removePebble(tempPebble);
+
+        //Append to playerHand
+        playerArrayList.get(playerID).getPlayerHand().add(tempPebble);
+
+        playerArrayList.get(playerID).setPlayerPath(tempNewPebblePath);
 
 
     }

@@ -37,6 +37,8 @@ public class Bag {
         bagSize -=1;
     }
 
+    public void incrementWhiteBagSize() { bagSize+=1; }
+
     public boolean bagIsEmpty() {
         return bagSize == 0;
     }
@@ -47,8 +49,8 @@ public class Bag {
         return "Bag{" +
                 "bagName='" + bagName + '\'' +
                 ", bagSize=" + bagSize +
-                ", isWhite=" + isWhite +
-                ", pebbles=" + pebbles +
+//                ", isWhite=" + isWhite +
+//                ", pebbles=" + pebbles +
                 '}';
     }
 
