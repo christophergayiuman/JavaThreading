@@ -24,7 +24,7 @@ public class Main {
         pg.setTotalPlayerNumber(gs.getPlayersNo());
         pg.createPlayerArray();
         pg.setAllBags(gs.getAllbags());
-        pg.fillPlayerBag();
+        pg.fillPlayerBag(0);
 
 //        pg.fillPlayerBag();
 
