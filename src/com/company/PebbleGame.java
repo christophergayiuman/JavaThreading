@@ -13,7 +13,7 @@ public class PebbleGame {
     //Player class
     static class Player {
 
-        private ArrayList<Pebble> playerBag;
+        private ArrayList<Pebble> playerHand;
         private int playerID;
 
         //Constructor for player
@@ -22,18 +22,18 @@ public class PebbleGame {
         }
 
         //Set player Bag//
-        public void setPlayerBag(ArrayList<Pebble> playerBag) {
-            this.playerBag = playerBag;
+        public void setPlayerHand(ArrayList<Pebble> playerHand) {
+            this.playerHand = playerHand;
         }
 
         //Get player bag
-        public ArrayList<Pebble> getPlayerBag(){
-            return playerBag;
+        public ArrayList<Pebble> getPlayerHand(){
+            return playerHand;
         }
 
         //Returns if player bag is empty
         public boolean bagEmpty(){
-            return (playerBag.isEmpty());
+            return (playerHand.isEmpty());
         }
 
         //Set player pebbles array
@@ -46,14 +46,14 @@ public class PebbleGame {
     }
 
     //Fill player pebble array
-    public void fillPlayerBag(int playerSlot) {
+    public void fillPlayerHand(int playerSlot) {
         try {
             {
                 //Fill up player hand
 
                 //Generates a random pebble from
                 int[] randomPebblepath = {1, generateRandomNum(2)};
-                ArrayList<Pebble> tempWeightsArray = new ArrayList<Pebble>();
+                ArrayList<Pebble> tempWeightsHand = new ArrayList<Pebble>();
 
                 //Loops through black bag and appends to temp list
                 for (int i = 0; i < 10; i++) {
@@ -67,7 +67,7 @@ public class PebbleGame {
                             allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(generateRandomNum(randomPebbleNum)).getWeight());
 
                     //Appends that pebble to the tempWeights Array
-                    tempWeightsArray.add(i, allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum));
+                    tempWeightsHand.add(i, allBags.get(randomPebblepath[0]).get(randomPebblepath[1]).getPebbles().get(randomPebbleNum));
                 }
 
 
@@ -85,14 +85,14 @@ public class PebbleGame {
 
                 //Temp pebble bag has its contents removed(the pebbles that were added to the playerhand)
                 for (int i = 0; i < 10; i++) {
-                    tempPebbles.remove(tempWeightsArray.get(i));
+                    tempPebbles.remove(tempWeightsHand.get(i));
                 }
 
 
                 //Need to work on this::
-                playerArrayList.get(0).setPlayerBag(tempWeightsArray);
-                System.out.println(playerArrayList.get(0).getPlayerBag().get(0).getWeight());
-//                System.out.println(playerArrayList.get(0).getPlayerBag().get(0).getWeight());
+                playerArrayList.get(0).setPlayerHand(tempWeightsHand);
+                System.out.println(playerArrayList.get(0).getPlayerHand().get(0).getWeight());
+//                System.out.println(playerArrayList.get(0).getPlayerHand().get(0).getWeight());
 
             }
         } catch (Exception e) {
