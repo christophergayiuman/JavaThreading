@@ -26,6 +26,7 @@ public class Bag {
     }
 
     //adds a pebble to the bag
+    //Update bag size.
     public void addPebble(Pebble pebble) {
         pebbles.add(pebble);
     }

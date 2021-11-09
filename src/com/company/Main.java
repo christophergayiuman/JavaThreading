@@ -24,9 +24,16 @@ public class Main {
         pg.setTotalPlayerNumber(gs.getPlayersNo());
         pg.createPlayerArray();
         pg.setAllBags(gs.getAllbags());
-        pg.fillPlayerHand(0);
+        pg.fillPlayerHand();
 
-//        pg.fillPlayerBag();
+
+        System.out.println();
+        System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
+        pg.discardPebble(0);
+
+
+
+
 
 
 

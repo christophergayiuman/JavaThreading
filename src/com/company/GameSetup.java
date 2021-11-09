@@ -73,19 +73,18 @@ public class GameSetup {
     public void createBags() {
 
         //creates bags
-        int bagSize = playersNo * 11;
         Bag A = new Bag();
-        A.Bag("A", bagSize, true);
+        A.Bag("A", 0, true);
         Bag B = new Bag();
-        B.Bag("B", bagSize, true);
+        B.Bag("B", 0, true);
         Bag C = new Bag();
-        C.Bag("C", bagSize, true);
+        C.Bag("C", 0, true);
         Bag X = new Bag();
-        X.Bag("X", bagSize, false);
+        X.Bag("X", 0, false);
         Bag Y = new Bag();
-        Y.Bag("Y", bagSize, false);
+        Y.Bag("Y", 0, false);
         Bag Z = new Bag();
-        Z.Bag("Z", bagSize, false);
+        Z.Bag("Z", 0, false);
 
         //fills black bags with pebbles
         fillBag(X, readPebbleWeightFile(bag0FilePath));
