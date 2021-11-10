@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Main {
+public class Main{
     public static void main(String[] args) throws IOException {
 
             //Setting up the game
@@ -17,39 +17,18 @@ public class Main {
         String path3 = "src\\com\\company\\ex3.csv";
         GameSetup gs = new GameSetup();
         gs.createBags();
-//        gs.startingGameInfo();
+        //gs.startingGameInfo();
 
-            //Setting up PebbleGame
+        //Setting up PebbleGame
         PebbleGame pg = new PebbleGame();
         pg.setTotalPlayerNumber(gs.getPlayersNo());
         pg.createPlayerArray();
         pg.setAllBags(gs.getAllbags());
 
 
-//            Player hand changing
-        pg.fillPlayerHand();
-
-        System.out.println("Here:  ....");
-        System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
-        System.out.println(pg.getAllBags().toString());
-
-        pg.discardPebble(0);
-        System.out.println("Discard:  ....");
-        System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
-        System.out.println(pg.getAllBags().toString());
-
-        pg.getNewPebble(0);
-        System.out.println("Get here:  ....");
-        System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
-        System.out.println(pg.getAllBags().toString());
-
-
-
-//        System.out.println(pg.getPlayerArrayList().get(0));
-//        PebbleGame.Player players = new PebbleGame.Player(1);
-//        System.out.println("Random generated Number: ");
-//        System.out.print(pg.generateRandomNum(5));
-
+        // Player hand changing
+        //pg.fillPlayerHand();
 
     }
+
 }

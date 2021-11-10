@@ -3,10 +3,9 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class GameSetup {
     // hardcoded starting game info for easier testing
@@ -62,6 +61,7 @@ public class GameSetup {
                 this.bag0FilePath = bag0;
                 this.bag1FilePath = bag1;
                 this.bag2FilePath = bag2;
+                //checkBagContents(bag0);
                 break;
             } catch (Exception e) {
                 System.out.println("Please enter a valid file location.");
@@ -74,17 +74,17 @@ public class GameSetup {
 
         //creates bags
         Bag A = new Bag();
-        A.Bag("A", 0, true);
+        A.Bag("A", new AtomicInteger(), true);
         Bag B = new Bag();
-        B.Bag("B", 0, true);
+        B.Bag("B", new AtomicInteger(), true);
         Bag C = new Bag();
-        C.Bag("C", 0, true);
+        C.Bag("C", new AtomicInteger(), true);
         Bag X = new Bag();
-        X.Bag("X", 0, false);
+        X.Bag("X", new AtomicInteger(), false);
         Bag Y = new Bag();
-        Y.Bag("Y", 0, false);
+        Y.Bag("Y", new AtomicInteger(), false);
         Bag Z = new Bag();
-        Z.Bag("Z", 0, false);
+        Z.Bag("Z", new AtomicInteger(), false);
 
         //fills black bags with pebbles
         fillBag(X, readPebbleWeightFile(bag0FilePath));
@@ -134,6 +134,16 @@ public class GameSetup {
             System.exit(0);
         }
     }
+
+    /**public void checkBagContents(String bagLocation) {
+        String[] bagContents = readPebbleWeightFile(bagLocation);
+        for (String b : bagContents ) {
+            if (Integer.parseInt(b.))
+
+        }
+        System.out.println(bagContents[14]);
+
+    }**/
 
     //checks correct file
     public boolean checkUserinput(String input) {

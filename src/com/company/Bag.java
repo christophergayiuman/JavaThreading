@@ -1,16 +1,13 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Bag {
 
     private String bagName;
-    private int bagSize;
+    //private int bagSize;
+    private AtomicInteger bagSize = new AtomicInteger(0);
     private boolean isWhite;
     private ArrayList<Pebble> pebbles = new ArrayList<>();
 
@@ -19,7 +16,7 @@ public class Bag {
     }
 
     // bag constructor
-    public void Bag(String bagName, int bagSize, boolean isWhite) {
+    public void Bag(String bagName, AtomicInteger bagSize, boolean isWhite) {
         this.bagName = bagName;
         this.bagSize = bagSize;
         this.isWhite = isWhite;
@@ -29,19 +26,16 @@ public class Bag {
     //Update bag size.
     public void addPebble(Pebble pebble) {
         pebbles.add(pebble);
-        bagSize +=1;
+        bagSize.incrementAndGet();
     }
 
     public void removePebble(Pebble pebble){
         pebbles.remove(pebble);
-        bagSize -=1;
+        bagSize.decrementAndGet();
     }
 
-    public void incrementWhiteBagSize() { bagSize+=1; }
+    public void incrementWhiteBagSize() { bagSize.incrementAndGet(); }
 
-    public boolean bagIsEmpty() {
-        return bagSize == 0;
-    }
 
     public void clearBag(){
         pebbles.clear();
