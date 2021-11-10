@@ -88,12 +88,21 @@ public class PebbleGame {
 //                checks if bag is empty and if true, refill from corresponding white bag
                 if (bag.bagEmpty()) {
                     System.out.println("empty bag!!!!!!!!!!!!!!!!!!!!!!!!!!!11");
+                    System.out.println("BEFORE: ");
+                    System.out.println("Empty Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+                    System.out.println("Full White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
 
                     //Make one bag equal to the other
-                    bag = allBags.get(0).get(tempNewPebblePath[1]);
+                    Bag tempBag = new Bag();
+
+                    allBags.get(tempNewPebblePath[0]).set(tempNewPebblePath[1], allBags.get(0).get(tempNewPebblePath[1]));
+
 
                     //Clear the old one
                     allBags.get(0).get(tempNewPebblePath[1]).clearBag();
+                    System.out.println("AFTER: ");
+                    System.out.println("Empty Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+                    System.out.println("Full White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
 
 //                    //Make temp bag array and fill it with the array
 //                    ArrayList<Bag> tempBags = new ArrayList<>();
@@ -106,6 +115,7 @@ public class PebbleGame {
 //                    allBags.get(tempNewPebblePath[0]).set(tempNewPebblePath[1], tempBags.get(0));
                 }
                 //Random pebble generate number
+                //System.out.println("Bag Size: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
                 int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
 
 
@@ -188,7 +198,7 @@ public class PebbleGame {
     }
 
     //Function to generate and return random number
-    public static Integer generateRandomNum(Integer Upperlimit) {
+    /**public static Integer generateRandomNum(Integer Upperlimit) {
         try {
             //generate random number
             Random rand = new Random();
@@ -207,6 +217,12 @@ public class PebbleGame {
             }
         }
         return  null;
+    }**/
+
+    public static Integer generateRandomNum(Integer Upperlimit) {
+            //generate random number
+            Random rand = new Random();
+            return rand.nextInt(Upperlimit);
     }
 
 
