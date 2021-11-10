@@ -92,17 +92,18 @@ public class PebbleGame {
                     System.out.println("Empty Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
                     System.out.println("Full White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
 
-                    //Make one bag equal to the other
-                    Bag tempBag = new Bag();
+                    //Temp bag is set to white bag
+                    Bag tempBag = allBags.get(0).get(tempNewPebblePath[1]);
+                    System.out.println(tempBag.toString());
 
-                    allBags.get(tempNewPebblePath[0]).set(tempNewPebblePath[1], allBags.get(0).get(tempNewPebblePath[1]));
-
+                    //Black bag is set to temp bag
+                    allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).setPebblesArray(tempBag.getPebbles());
 
                     //Clear the old one
                     allBags.get(0).get(tempNewPebblePath[1]).clearBag();
                     System.out.println("AFTER: ");
-                    System.out.println("Empty Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
-                    System.out.println("Full White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
+                    System.out.println("Full Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+                    System.out.println("Empty White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
 
 //                    //Make temp bag array and fill it with the array
 //                    ArrayList<Bag> tempBags = new ArrayList<>();

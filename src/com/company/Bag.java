@@ -22,6 +22,11 @@ public class Bag {
         this.isWhite = isWhite;
     }
 
+    //Set the entire bag
+    public void setPebblesArray(ArrayList<Pebble> pebblesArray){
+        this.pebbles = pebblesArray;
+    }
+
     //adds a pebble to the bag
     //Update bag size.
     public void addPebble(Pebble pebble) {
