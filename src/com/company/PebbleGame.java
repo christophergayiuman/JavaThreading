@@ -92,16 +92,37 @@ public class PebbleGame {
                     System.out.println("Empty Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
                     System.out.println("Full White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
 
-                    //Temp bag is set to white bag
-                    Bag tempBag = allBags.get(0).get(tempNewPebblePath[1]);
-                    System.out.println(tempBag.toString());
+//                    //Temp bags value is gotten from getPebbles function
+//                    Bag tempBag = allBags.get(0).get(tempNewPebblePath[1]);
+//                    System.out.println(tempBag.toString());
+//
+//                    ArrayList<Pebble> tempPebbles = new ArrayList<>();
+//                    tempPebbles = tempBag.getPebbles();
+//                    System.out.println(tempPebbles.size());
 
-                    //Black bag is set to temp bag
-                    allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).setPebblesArray(tempBag.getPebbles());
 
-                    //Clear the old one
+                    ArrayList<Pebble> tempPebbles = new ArrayList<>();
+                    tempPebbles = allBags.get(0).get(tempNewPebblePath[1]).getPebbles();
+
+
+                    //Black bag is set to temp pebbles
+                    allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).setPebblesArray(tempPebbles);
+                    System.out.println(" ");
+                    System.out.println("AFTER11: ");
+                    System.out.println("Full Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+                    System.out.println("Empty White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
+
+                    //Clear the old one ISSUE IS here
+                    System.out.println(allBags.get(0).get(tempNewPebblePath[1]).toString());
+
+
+                    ArrayList<Pebble> emptyPebbleArrayList = new ArrayList<>();
+                    allBags.get(0).get(tempNewPebblePath[1]).setPebblesArray(emptyPebbleArrayList);
                     allBags.get(0).get(tempNewPebblePath[1]).clearBag();
-                    System.out.println("AFTER: ");
+
+
+                    System.out.println(" ");
+                    System.out.println("AFTER222: ");
                     System.out.println("Full Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
                     System.out.println("Empty White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
 
