@@ -205,11 +205,10 @@ public class PebbleGame {
                 System.out.println(allBags.get(1).get(i).toString());
                 System.out.println("");
             }
-
-
         }
         return  null;
     }
+
 
 
 

@@ -135,15 +135,16 @@ public class GameSetup {
         }
     }
 
-    /**public void checkBagContents(String bagLocation) {
+    public void checkBagContents(String bagLocation) {
         String[] bagContents = readPebbleWeightFile(bagLocation);
         for (String b : bagContents ) {
-            if (Integer.parseInt(b.))
+            if (Integer.parseInt(b) < 0) {
+                System.out.println("Files do not strictly contain positive weight");
+            }
 
         }
-        System.out.println(bagContents[14]);
 
-    }**/
+    }
 
     //checks correct file
     public boolean checkUserinput(String input) {
