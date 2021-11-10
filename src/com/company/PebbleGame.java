@@ -84,10 +84,7 @@ public class PebbleGame {
             int[] tempNewPebblePath= {1, generateRandomNum(3)};
 
             Bag bag = allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]);
-            synchronized (allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1])) {
-                //Random pebble generate number
-                int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
-
+            synchronized (bag) {
                 //checks if bag is empty and if true, refill from corresponding white bag
                 if (bag.bagEmpty()) {
                     System.out.println("empty bag!!!!!!!!!!!!!!!!!!!!!!!!!!!11");
@@ -102,6 +99,9 @@ public class PebbleGame {
                     //set the temp array to the black bag now
                     allBags.get(tempNewPebblePath[0]).set(tempNewPebblePath[1], tempBags.get(0));
                 }
+                //Random pebble generate number
+                int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+
 
 
                 //Add to playerhand
