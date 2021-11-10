@@ -67,6 +67,8 @@ public class PebbleGame {
             //Change from black bag path to white bag path
             int[] whiteBagPebblePath = {0, getPlayerPath()[1]};
             int tempGenerateRandomNum = generateRandomNum(10);
+            //Discard pebble from playerHand
+            getPlayerHand().remove(tempGenerateRandomNum);
 
             synchronized (allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1])) {
                 //Adds pebble from playerHand to white bag
@@ -77,9 +79,7 @@ public class PebbleGame {
                     System.out.println("b: " + playerHand.size());
                     System.out.println(e);
                 }
-                //Discard pebble from playerHand
 
-                getPlayerHand().remove(tempGenerateRandomNum);
                 System.out.println("A: " + playerHand.size());
             }
 
