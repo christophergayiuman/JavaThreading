@@ -43,6 +43,9 @@ public class Bag {
         return bagSize == 0;
     }
 
+    public void clearBag(){
+        pebbles.clear();
+    }
 
     @Override
     public String toString() {

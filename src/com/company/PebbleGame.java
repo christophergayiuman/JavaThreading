@@ -115,6 +115,22 @@ public class PebbleGame {
         //Random pebble generate number
         int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
 
+
+        //checks if bag is empty and if true, refill from corresponding white bag
+        if (allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().isEmpty()){
+
+            //Make temp bag array and fill it with the array
+            ArrayList<Bag> tempBags = new ArrayList<Bag>();
+            tempBags.set(0, allBags.get(0).get(tempNewPebblePath[1]));
+
+            //Empty the corresponding whitebag
+            allBags.get(0).get(tempNewPebblePath[1]).clearBag();
+
+            //set the temp array to the black bag now
+            allBags.get(tempNewPebblePath[0]).set(tempNewPebblePath[1], tempBags.get(0));
+
+        }
+
         //Add to playerhand
         Pebble tempPebble;
         tempPebble = allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().get(tempGenerateRandomNum);
@@ -126,6 +142,7 @@ public class PebbleGame {
         playerArrayList.get(playerID).getPlayerHand().add(tempPebble);
 
         playerArrayList.get(playerID).setPlayerPath(tempNewPebblePath);
+
 
 
     }
@@ -147,6 +164,8 @@ public class PebbleGame {
         int generatedRandomNumber = rand.nextInt(Upperlimit);
         return generatedRandomNumber;
     }
+
+
 
     //Setter methods
     public void setTotalPlayerNumber(int totalPlayerNumber) {
