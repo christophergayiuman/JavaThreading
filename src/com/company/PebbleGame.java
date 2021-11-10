@@ -63,18 +63,26 @@ public class PebbleGame {
         }
 
         public void discardPebble(){
+            System.out.println("10?: " + playerHand.size());
             //Change from black bag path to white bag path
             int[] whiteBagPebblePath = {0, getPlayerPath()[1]};
             int tempGenerateRandomNum = generateRandomNum(10);
 
             synchronized (allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1])) {
                 //Adds pebble from playerHand to white bag
-                allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).getPebbles().add(getPlayerHand().get(tempGenerateRandomNum));
-                allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).incrementWhiteBagSize();
+                try {
+                    allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).getPebbles().add(getPlayerHand().get(tempGenerateRandomNum));
+                    allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).incrementWhiteBagSize();
+                } catch (Exception e) {
+                    System.out.println("b: " + playerHand.size());
+                    System.out.println(e);
+                }
+                //Discard pebble from playerHand
+
+                getPlayerHand().remove(tempGenerateRandomNum);
+                System.out.println("A: " + playerHand.size());
             }
 
-            //Discard pebble from playerHand
-            getPlayerHand().remove(tempGenerateRandomNum);
         }
 
 
@@ -101,11 +109,11 @@ public class PebbleGame {
                 getPlayerHand().add(tempPebble);
                 winCondition();
                 } catch (Exception e) {
-                    System.out.println("empty bag!!!!!!!!!!!!!!!!!!!!!!!!!!!11");
+                    /**System.out.println("empty bag!!!!!!!!!!!!!!!!!!!!!!!!!!!11");
                     System.out.println("BEFORE: ");
                     System.out.println("Empty Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
                     System.out.println("Full White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
-
+                     **/
                     ArrayList<Pebble> tempPebbles = new ArrayList<>();
                     tempPebbles = allBags.get(0).get(tempNewPebblePath[1]).getPebbles();
 
@@ -114,23 +122,19 @@ public class PebbleGame {
                     allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).setPebblesArray(tempPebbles);
 
                     //Clear the old one ISSUE IS here
-                    System.out.println(allBags.get(0).get(tempNewPebblePath[1]).toString());
+                    //System.out.println(allBags.get(0).get(tempNewPebblePath[1]).toString());
 
 
                     ArrayList<Pebble> emptyPebbleArrayList = new ArrayList<>();
                     allBags.get(0).get(tempNewPebblePath[1]).setPebblesArray(emptyPebbleArrayList);
                     allBags.get(0).get(tempNewPebblePath[1]).clearBag();
 
-                    System.out.println(" ");
+                    /**System.out.println(" ");
                     System.out.println("AFTER: ");
                     System.out.println("Full Black Bag: "+allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
-                    System.out.println("Empty White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());
-
-
-
+                    System.out.println("Empty White Bag: " + allBags.get(0).get(tempNewPebblePath[1]).getPebbles().size());**/
+                    winCondition();
                 }
-
-
             }
             setPlayerPath(tempNewPebblePath);
         }
