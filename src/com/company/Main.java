@@ -34,34 +34,14 @@ public class Main {
         System.out.println(pg.getAllBags().toString());
 
         pg.discardPebble(0);
-
         System.out.println("Discard:  ....");
         System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
         System.out.println(pg.getAllBags().toString());
-
 
         pg.getNewPebble(0);
         System.out.println("Get here:  ....");
         System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
         System.out.println(pg.getAllBags().toString());
-
-
-        System.out.println("Second time");
-        System.out.println(" ");
-        System.out.println(" ");
-
-        pg.discardPebble(0);
-
-        System.out.println("Discard:  ....");
-        System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
-        System.out.println(pg.getAllBags().toString());
-
-
-        pg.getNewPebble(0);
-        System.out.println("Get here:  ....");
-        System.out.println(pg.getPlayerArrayList().get(0).getPlayerHand().size());
-        System.out.println(pg.getAllBags().toString());
-
 
 
 

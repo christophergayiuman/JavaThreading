@@ -23,6 +23,24 @@ public class PebbleGame {
             this.playerID = playerID;
         }
 
+        //Check if total pebbles is 100
+
+        public boolean winCondition (){
+            //Iterate through and add to totalWeights value
+            int totalWeightsValue = 0;
+            for (int i = 0; i < playerHand.size(); i++) {
+                totalWeightsValue = totalWeightsValue + playerHand.get(i).getWeight();
+            }
+
+            //Check if 100
+            if (totalWeightsValue >= 100){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
         //Set player Bag//
         public void setPlayerHand(ArrayList<Pebble> playerHand) {
             this.playerHand = playerHand;
