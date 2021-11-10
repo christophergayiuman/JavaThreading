@@ -36,6 +36,11 @@ public class Bag {
 
     public void incrementWhiteBagSize() { bagSize.incrementAndGet(); }
 
+    public boolean bagEmpty() {
+        int current = bagSize.get();
+        return current == 0;
+    }
+
 
     public void clearBag(){
         pebbles.clear();

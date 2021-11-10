@@ -83,12 +83,14 @@ public class PebbleGame {
             //Temp newPebblePath
             int[] tempNewPebblePath= {1, generateRandomNum(3)};
 
-            //Random pebble generate number
-            int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
             Bag bag = allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]);
             synchronized (allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1])) {
+                //Random pebble generate number
+                int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+
                 //checks if bag is empty and if true, refill from corresponding white bag
-                if (bag.getPebbles().isEmpty()) {
+                if (bag.bagEmpty()) {
+                    System.out.println("empty bag!!!!!!!!!!!!!!!!!!!!!!!!!!!11");
 
                     //Make temp bag array and fill it with the array
                     ArrayList<Bag> tempBags = new ArrayList<>();
@@ -100,6 +102,7 @@ public class PebbleGame {
                     //set the temp array to the black bag now
                     allBags.get(tempNewPebblePath[0]).set(tempNewPebblePath[1], tempBags.get(0));
                 }
+
 
                 //Add to playerhand
                 Pebble tempPebble;
@@ -181,9 +184,26 @@ public class PebbleGame {
 
     //Function to generate and return random number
     public static Integer generateRandomNum(Integer Upperlimit) {
-        //generate random number
-        Random rand = new Random();
-        return rand.nextInt(Upperlimit);
+        try {
+            //generate random number
+            Random rand = new Random();
+            return rand.nextInt(Upperlimit);
+        } catch (Exception e) {
+            System.out.println(e);
+            for (int i = 0; i <3; i++) {
+                System.out.println("White bags: "+allBags.get(0).get(i).toString());
+                System.out.println("");
+            }
+
+            for (int i = 0; i < 3; i++) {
+                System.out.println("Balck bags: ");
+                System.out.println(allBags.get(1).get(i).toString());
+                System.out.println("");
+            }
+
+
+        }
+        return  null;
     }
 
 
@@ -219,7 +239,7 @@ public class PebbleGame {
         pg.setAllBags(gs.getAllbags());
         pg.createPlayerArray();
 
-        // threading
+        // makes the players threads and executes it
         ExecutorService es = Executors.newFixedThreadPool(gs.getPlayersNo());
         for (Player player : pg.getPlayerArrayList()) es.execute(new Thread(player));
         es.shutdown();
