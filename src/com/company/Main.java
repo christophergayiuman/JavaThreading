@@ -16,14 +16,14 @@ public class Main{
         String path2 = "src\\com\\company\\ex2.txt";
         String path3 = "src\\com\\company\\ex3.csv";
         GameSetup gs = new GameSetup();
-        //gs.createBags();
-        gs.startingGameInfo();
+        gs.createBags();
+        //gs.startingGameInfo();
 
         //Setting up PebbleGame
-        //PebbleGame pg = new PebbleGame();
-        //pg.setTotalPlayerNumber(gs.getPlayersNo());
-        //pg.createPlayerArray();
-        //pg.setAllBags(gs.getAllbags());
+        PebbleGame pg = new PebbleGame();
+        pg.setTotalPlayerNumber(gs.getPlayersNo());
+        pg.createPlayerArray();
+        pg.setAllBags(gs.getAllbags());
 
 
         // Player hand changing
