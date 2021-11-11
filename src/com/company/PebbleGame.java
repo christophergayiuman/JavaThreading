@@ -275,11 +275,6 @@ public class PebbleGame {
             return totalWeightsValue;
         }
 
-        //Returns if player bag is empty
-        public boolean bagEmpty(){
-            return (playerHand.isEmpty());
-        }
-
         //prints player ID's
         public void printPlayerID() {
             System.out.println(playerID);
@@ -311,33 +306,10 @@ public class PebbleGame {
     }
 
     //Function to generate and return random number
-    /**public static Integer generateRandomNum(Integer Upperlimit) {
-        try {
-            //generate random number
-            Random rand = new Random();
-            return rand.nextInt(Upperlimit);
-        } catch (Exception e) {
-            System.out.println(e);
-            for (int i = 0; i <3; i++) {
-                System.out.println("White bags: "+allBags.get(0).get(i).toString());
-                System.out.println("");
-            }
-
-            for (int i = 0; i < 3; i++) {
-                System.out.println("Balck bags: ");
-                System.out.println(allBags.get(1).get(i).toString());
-                System.out.println("");
-            }
-        }
-        return  null;
-    }**/
-
-
-    //Genreate random number
     public static Integer generateRandomNum(Integer Upperlimit) {
-            //generate random number
-            Random rand = new Random();
-            return rand.nextInt(Upperlimit);
+        //generate random number
+        Random rand = new Random();
+        return rand.nextInt(Upperlimit);
     }
 
     //Setter methods
@@ -368,7 +340,7 @@ public class PebbleGame {
         //gs.startingGameInfo();
         PebbleGame pg = new PebbleGame();
         pg.setTotalPlayerNumber(gs.getPlayersNo());
-        pg.setAllBags(gs.getAllbags());
+        pg.setAllBags(gs.getAllBags());
         pg.createPlayerArray();
 
         for (int i = 0; i < pg.createPlayerOutputNames().size(); i++) {

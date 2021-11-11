@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Bag {
-
     private String bagName;
     //private int bagSize;
     private AtomicInteger bagSize = new AtomicInteger(0);
-    private boolean isWhite;
     private ArrayList<Pebble> pebbles = new ArrayList<>();
 
     public ArrayList<Pebble> getPebbles() {
@@ -16,10 +14,9 @@ public class Bag {
     }
 
     // bag constructor
-    public void Bag(String bagName, AtomicInteger bagSize, boolean isWhite) {
+    public void Bag(String bagName, AtomicInteger bagSize) {
         this.bagName = bagName;
         this.bagSize = bagSize;
-        this.isWhite = isWhite;
     }
 
     //Set the entire bag

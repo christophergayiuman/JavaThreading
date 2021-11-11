@@ -6,22 +6,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
-
 public class GameSetup {
     // hardcoded starting game info for easier testing
-    private int playersNo;// = 3;
-    private String bag0FilePath;// = "src\\com\\company\\ex1.csv";
-    private String bag1FilePath;// = "src\\com\\company\\ex1.csv";
-    private String bag2FilePath;// = "src\\com\\company\\ex1.csv";
-    private ArrayList<ArrayList<Bag>> allbags;
+    private int playersNo = 3;
+    private String bag0FilePath = "src\\com\\company\\ex1.csv";
+    private String bag1FilePath = "src\\com\\company\\ex1.csv";
+    private String bag2FilePath = "src\\com\\company\\ex1.csv";
+    private ArrayList<ArrayList<Bag>> allBags;
 
 
     public void startingGameInfo() {
-        System.out.println("Welcome to the PebbleGame!!\n" +
-                "You will be asked to enter the number of players.\n" +
-                "and then for the location of the three files in turn containing comma separated integer values of the pebble weights.\n" +
-                "The integer values must be strictly positive.\n" +
-                "The game will then be simulated, and output written files in this directory.\n");
+        System.out.println("""
+                Welcome to the PebbleGame!!
+                You will be asked to enter the number of players.
+                and then for the location of the three files in turn containing comma separated integer values of the pebble weights.
+                The integer values must be strictly positive.
+                The game will then be simulated, and output written files in this directory.
+                """);
 
         // get number of players
         while (true) {
@@ -47,21 +48,20 @@ public class GameSetup {
                 System.out.println("Please enter location of bag number 0 to load:");
                 String bag0 = inputCsvFiles.nextLine();
                 exitGame(bag0);
-                if (checkUserinput(bag0)) continue;
+                if (checkUserInput(bag0)) continue;
 
                 System.out.println("Please enter location of bag number 1 to load:");
                 String bag1 = inputCsvFiles.nextLine();
                 exitGame(bag1);
-                if (checkUserinput(bag1)) continue;
+                if (checkUserInput(bag1)) continue;
 
                 System.out.println("Please enter location of bag number 2 to load:");
                 String bag2 = inputCsvFiles.nextLine();
                 exitGame(bag2);
-                if (checkUserinput(bag2)) continue;
+                if (checkUserInput(bag2)) continue;
                 this.bag0FilePath = bag0;
                 this.bag1FilePath = bag1;
                 this.bag2FilePath = bag2;
-                //checkBagContents(bag0);
                 break;
             } catch (Exception e) {
                 System.out.println("Please enter a valid file location.");
@@ -74,17 +74,17 @@ public class GameSetup {
 
         //creates bags
         Bag A = new Bag();
-        A.Bag("A", new AtomicInteger(), true);
+        A.Bag("A", new AtomicInteger());
         Bag B = new Bag();
-        B.Bag("B", new AtomicInteger(), true);
+        B.Bag("B", new AtomicInteger());
         Bag C = new Bag();
-        C.Bag("C", new AtomicInteger(), true);
+        C.Bag("C", new AtomicInteger());
         Bag X = new Bag();
-        X.Bag("X", new AtomicInteger(), false);
+        X.Bag("X", new AtomicInteger());
         Bag Y = new Bag();
-        Y.Bag("Y", new AtomicInteger(), false);
+        Y.Bag("Y", new AtomicInteger());
         Bag Z = new Bag();
-        Z.Bag("Z", new AtomicInteger(), false);
+        Z.Bag("Z", new AtomicInteger());
 
         //fills black bags with pebbles
         fillBag(X, readPebbleWeightFile(bag0FilePath));
@@ -92,19 +92,19 @@ public class GameSetup {
         fillBag(Z, readPebbleWeightFile(bag2FilePath));
 
         //Fill arraylist with bags
-        ArrayList<ArrayList<Bag>> allBags = new ArrayList<ArrayList<Bag>>();
-        ArrayList<Bag> whiteBags = new ArrayList<Bag>();
-        ArrayList<Bag> blackBags = new ArrayList<Bag>();
+        ArrayList<ArrayList<Bag>> allBag = new ArrayList<>();
+        ArrayList<Bag> whiteBags = new ArrayList<>();
+        ArrayList<Bag> blackBags = new ArrayList<>();
 
         whiteBags.add(A); whiteBags.add(B); whiteBags.add(C);
         blackBags.add(X); blackBags.add(Y); blackBags.add(Z);
-        allBags.add(0,whiteBags);
-        allBags.add(1,blackBags);
+        allBag.add(0,whiteBags);
+        allBag.add(1,blackBags);
 
-        this.allbags = allBags;
+        this.allBags = allBag;
     }
 
-    public ArrayList<ArrayList<Bag>> getAllbags (){ return allbags; }
+    public ArrayList<ArrayList<Bag>> getAllBags (){ return allBags; }
 
     // fills a bag with pebbles
     public void fillBag(Bag bag, String[] weights) {
@@ -118,9 +118,7 @@ public class GameSetup {
         String[] pebbleWeightList = null;
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = br.readLine()) != null) {
-                pebbleWeightList = (line.split(","));
-            }
+            while ((line = br.readLine()) != null) pebbleWeightList = (line.split(","));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -135,23 +133,36 @@ public class GameSetup {
         }
     }
 
-    public void checkBagContents(String bagLocation) {
-        String[] bagContents = readPebbleWeightFile(bagLocation);
-        for (String b : bagContents ) {
-            if (Integer.parseInt(b) < 0) {
-                System.out.println("Files do not strictly contain positive weight");
-            }
-        }
-
-    }
-
     //checks correct file
-    public boolean checkUserinput(String input) {
-       if (!(input.endsWith(".csv") || input.endsWith(".txt"))) {
+    public boolean checkUserInput(String input) {
+        if (!(input.endsWith(".csv") || input.endsWith(".txt"))) {
             System.out.println("Please enter a valid csv file.\n");
             return true;
-       }
-        return false;
+        } else {
+            String[] bagContents = readPebbleWeightFile(input);
+            int pebbleAmount=0;
+            try {
+                for (String b : bagContents) {
+                    pebbleAmount++;
+                    if (Integer.parseInt(b) < 0) {
+                        System.out.println("Files do not strictly contain positive weight.");
+                        return true;
+                    }
+                }
+                if (pebbleAmount<11*playersNo) {
+                    System.out.println("File does not contain enough pebbles");
+                    return true;
+                }
+            } catch (Exception e) {
+                System.out.println("Files do not contain valid values.");
+                return true;
+            }
+        }
+            return false;
+    }
+
+    public void setPlayersNo(int playersNo) {
+        this.playersNo = playersNo;
     }
 
     public int getPlayersNo(){return playersNo;}

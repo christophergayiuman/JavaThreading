@@ -20,10 +20,9 @@ public class Main{
         //gs.startingGameInfo();
 
         //Setting up PebbleGame
-        PebbleGame pg = new PebbleGame();
-        pg.setTotalPlayerNumber(gs.getPlayersNo());
-        pg.createPlayerArray();
-        pg.setAllBags(gs.getAllbags());
+        //PebbleGame pg = new PebbleGame();
+        //pg.setTotalPlayerNumber(gs.getPlayersNo());
+        //pg.createPlayerArray();
 
 
         // Player hand changing

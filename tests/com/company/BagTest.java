@@ -1,5 +1,4 @@
 package com.company;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,13 +21,10 @@ class BagTest {
     Pebble p3 = new Pebble(3);
     Pebble p4 = new Pebble(4);
 
-
-
-
     @BeforeEach
     void setUp() {
         // sets up bag object to be used by testing
-        bag.Bag("A", ai, false);
+        bag.Bag("A", ai);
     }
 
     @AfterEach
