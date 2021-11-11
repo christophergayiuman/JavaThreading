@@ -75,6 +75,10 @@ class PebbleGameTest {
 
     @Test
     void getPlayerArrayList() {
+        ArrayList<PebbleGame.Player> playerArrayList = new ArrayList<>();
+
+
+
     }
 
     @Test
