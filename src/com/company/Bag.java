@@ -41,12 +41,6 @@ public class Bag {
 
     public void incrementWhiteBagSize() { bagSize.incrementAndGet(); }
 
-    public boolean bagEmpty() {
-        int current = bagSize.get();
-        return current == 0;
-    }
-
-
     public void clearBag(){
         pebbles.clear();
     }
@@ -54,6 +48,11 @@ public class Bag {
     public String getBagName(){
         return bagName;
     }
+
+    public int getBagSize() {
+        return bagSize.intValue();
+    }
+
     @Override
     public String toString() {
         return "Bag{" +

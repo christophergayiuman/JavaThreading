@@ -11,7 +11,7 @@ class PebbleTest {
 
     @Test
     void getWeight() {
-        Assertions.assertEquals(10, pebble.getWeight());
+        assertEquals(10, pebble.getWeight());
     }
 
 }
