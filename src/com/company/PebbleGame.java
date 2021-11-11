@@ -39,10 +39,20 @@ public class PebbleGame {
     }
 
     //Function that builds the playeroutputfiles names
-    public String[] createPlayerOutputNames(){
-        totalPlayerNumber
+    public ArrayList<String> createPlayerOutputNames(){
+        ArrayList<String> playerOutputNames = new ArrayList<>();
 
-        return null;
+        for (int i = 0; i < playerArrayList.size(); i++) {
+            //Create the textfile name
+            StringBuilder playerFileName = new StringBuilder("player");
+            playerFileName.append(Integer.toString(playerArrayList.get(i).getPlayerID()));
+            playerFileName.append("_");
+            playerFileName.append("output.txt");
+            String strPlayerFileName = playerFileName.toString();
+            playerOutputNames.add(strPlayerFileName);
+            System.out.println(strPlayerFileName);
+        }
+        return playerOutputNames;
     }
 
     //Player class
@@ -239,6 +249,11 @@ public class PebbleGame {
             return playerHand;
         }
 
+        //Get playerID
+        public int getPlayerID(){
+            return playerID;
+        }
+
         //Gets the total value of the players hand
         public int playerHandValue() {
             int totalWeightsValue = 0;
@@ -343,6 +358,10 @@ public class PebbleGame {
         pg.setTotalPlayerNumber(gs.getPlayersNo());
         pg.setAllBags(gs.getAllbags());
         pg.createPlayerArray();
+
+        for (int i = 0; i < pg.createPlayerOutputNames().size(); i++) {
+            clearLogFile(pg.createPlayerOutputNames().get(i));
+        }
 
 
         // makes the players threads and executes it
