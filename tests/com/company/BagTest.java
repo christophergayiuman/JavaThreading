@@ -54,12 +54,6 @@ class BagTest {
     }
 
     @Test
-    void testBag() {
-
-
-    }
-
-    @Test
     void testSetPebblesArray() {
         // creates a pebble array
         ArrayList<Pebble> pebbles = new ArrayList<>();

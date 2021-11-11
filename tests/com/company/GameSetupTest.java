@@ -17,14 +17,10 @@ class GameSetupTest {
 
     }
 
-    // Don't need to test startingGameInfo as we are testing the function that test startingGameInfo
-
     @Test
     void testCreateBags() {
         // runs the function so that it can be tested
         gameSetup.createBags();
-
-
 
         // checks that 3 black and 3 white bags are created
         // and are in the 'allBag' array
@@ -37,9 +33,6 @@ class GameSetupTest {
         assertEquals("X", gameSetup.getAllBags().get(1).get(0).getBagName());
         assertEquals("Y", gameSetup.getAllBags().get(1).get(1).getBagName());
         assertEquals("Z", gameSetup.getAllBags().get(1).get(2).getBagName());
-
-
-
     }
 
     @Test
@@ -72,26 +65,6 @@ class GameSetupTest {
 
         // checks the allBag are the same
         assertTrue(allBag.get(0).get(0).getBagName().equals(gameSetup.getAllBags().get(0).get(0).getBagName()));
-    }
-
-    @Test
-    void testFillBag() {
-    }
-
-    @Test
-    void testReadPebbleWeightFile() {
-    }
-
-    @Test
-    void testExitGame() {
-    }
-
-    @Test
-    void testCheckBagContents() {
-    }
-
-    @Test
-    void testcheckUserinput() {
     }
 
     @Test

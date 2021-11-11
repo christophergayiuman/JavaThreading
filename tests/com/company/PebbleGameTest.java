@@ -15,19 +15,6 @@ class PebbleGameTest {
     PebbleGame.Player player1 = new PebbleGame.Player(1);
     PebbleGame.Player player2 = new PebbleGame.Player(2);
 
-
-    @BeforeEach
-    void setUp() {
-    }
-
-    @Test
-    void clearLogFile() {
-    }
-
-    @Test
-    void createPlayerOutputNames() {
-    }
-
     @Test
     void testCreatePlayerArray() {
         //Create Arraylist of players
@@ -41,10 +28,6 @@ class PebbleGameTest {
         //Creates player array
         pebbleGame.createPlayerArray();
 
-    }
-
-    @Test
-    void generateRandomNum() {
     }
 
     @Test
@@ -82,12 +65,6 @@ class PebbleGameTest {
 
     }
 
-
-    @Test
-    void setAllBags() {
-
-    }
-
     @Test
     void getTotalPlayerNumber() {
         //Set total player numbers
@@ -98,16 +75,6 @@ class PebbleGameTest {
     @Test
     void getPlayerArrayList() {
         ArrayList<PebbleGame.Player> playerArrayList = new ArrayList<>();
-
-
-
     }
 
-    @Test
-    void getAllBags() {
-    }
-
-    @Test
-    void main() {
-    }
 }
