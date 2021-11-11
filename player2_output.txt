@@ -1,0 +1,15 @@
+player2 has discard a 47 from bag A
+player2 hand is  50,  20,  46,  47,  41,  51,  12,  27,  22,  21, 
+
+player2 has discard a 27 from bag A
+player2 hand is  50,  20,  46,  41,  51,  12,  27,  22,  21, 
+
+player2 has drawn a 46 from bag Y
+player2 hand is  50,  20,  46,  41,  51,  12,  22,  21, 
+
+player2 has discard a 41 from bag B
+player2 hand is  50,  20,  46,  41,  51,  12,  22,  21,  46, 
+
+player2 has drawn a 45 from bag X
+player2 hand is  50,  20,  46,  51,  12,  22,  21,  46, 
+
