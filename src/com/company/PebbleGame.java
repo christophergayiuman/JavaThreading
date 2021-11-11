@@ -239,9 +239,9 @@ public class PebbleGame {
 
         //Synchronized winCondition
         public synchronized void winCondition (){
-            if (playerHandValue() == 300) {
+            if (playerHandValue() == 100) {
                 gameWinner = true;
-                System.out.println("WINNER!!!!!!!!!!!!!!!!!!");
+                System.out.println("Winner!");
             }
         }
 
