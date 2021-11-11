@@ -20,7 +20,7 @@ class GameSetupTest {
     // Don't need to test startingGameInfo as we are testing the function that test startingGameInfo
 
     @Test
-    void createBags() {
+    void testCreateBags() {
         // runs the function so that it can be tested
         gameSetup.createBags();
 
@@ -43,9 +43,9 @@ class GameSetupTest {
     }
 
     @Test
-    void getAllBags() {
+    void testGetAllBags() {
         // creates the bags in the gameSetup
-        createBags();
+        testCreateBags();
 
         // fills local allBag array
         Bag A = new Bag();
@@ -75,27 +75,27 @@ class GameSetupTest {
     }
 
     @Test
-    void fillBag() {
+    void testFillBag() {
     }
 
     @Test
-    void readPebbleWeightFile() {
+    void testReadPebbleWeightFile() {
     }
 
     @Test
-    void exitGame() {
+    void testExitGame() {
     }
 
     @Test
-    void checkBagContents() {
+    void testCheckBagContents() {
     }
 
     @Test
-    void checkUserinput() {
+    void testcheckUserinput() {
     }
 
     @Test
-    void getPlayersNo() {
+    void testGetPlayersNo() {
         // sets player no=umber
         gameSetup.setPlayersNo(3);
         // checks the the method works
