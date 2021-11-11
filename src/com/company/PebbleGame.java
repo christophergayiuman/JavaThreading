@@ -1,5 +1,6 @@
 package com.company;
 
+//Imports below...
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PebbleGame {
 
+    //Establishing PebbleGame variables
     private static int totalPlayerNumber;
     private static ArrayList<Player> playerArrayList;
     private static ArrayList<ArrayList<Bag>> allBags;
@@ -22,18 +24,16 @@ public class PebbleGame {
     //Function that clears the log file
     public static void clearLogFile(String strPlayerFileName){
         try{
+            //If there is a file delete the file
             File file = new File(strPlayerFileName);
             file.delete();
             if (file.delete()){
-                System.out.println("File deleted sucessfully");
+//                System.out.println("File deleted sucessfully");
             } else {
-                System.out.println("Failed to delete file");
+//                System.out.println("Failed to delete file");
             }
-            System.out.println("Clear filename");
+//            System.out.println("Clear filename");
         }catch (Exception e){
-            System.out.println(e);
-            System.out.println(e);
-            System.out.println(e);
 
         }
 
@@ -44,14 +44,13 @@ public class PebbleGame {
         ArrayList<String> playerOutputNames = new ArrayList<>();
 
         for (int i = 0; i < playerArrayList.size(); i++) {
-            //Create the textfile name
+            //Using string builder to make the playerfilename
             StringBuilder playerFileName = new StringBuilder("player");
             playerFileName.append(Integer.toString(playerArrayList.get(i).getPlayerID()));
             playerFileName.append("_");
             playerFileName.append("output.txt");
             String strPlayerFileName = playerFileName.toString();
             playerOutputNames.add(strPlayerFileName);
-            System.out.println(strPlayerFileName);
         }
         return playerOutputNames;
     }
@@ -59,6 +58,7 @@ public class PebbleGame {
     //Player class
     static class Player implements Runnable {
 
+        //Establishing player variables
         private ArrayList<Pebble> playerHand;
         private int playerID;
         private int[] path;
@@ -108,7 +108,6 @@ public class PebbleGame {
                 output.append("\n");
                 output.close();
 
-                System.out.println("Appended " + playerOutput.toString() + "Successfully.....");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -167,8 +166,6 @@ public class PebbleGame {
             appendLog("discard", String.valueOf(getPlayerHand().get(tempGenerateRandomNum).getWeight()),
                     allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).getBagName());
 
-
-
             //Discard pebble from playerHand
             getPlayerHand().remove(tempGenerateRandomNum);
 
@@ -180,6 +177,7 @@ public class PebbleGame {
         }
 
 
+        //Get new pebble functions
         public void getNewPebble(){
             System.out.println(Thread.currentThread().getName()+" : hand value = " + playerHandValue());
             //Temp newPebblePath
@@ -239,6 +237,7 @@ public class PebbleGame {
             setPlayerPath(tempNewPebblePath);
         }
 
+        //Synchronized winCondition
         public synchronized void winCondition (){
             if (playerHandValue() == 300) {
                 gameWinner = true;
@@ -257,6 +256,7 @@ public class PebbleGame {
         //Get player path
         public int[] getPlayerPath(){return path;}
 
+        //Set player hand function
         public void setPLayerHand( ArrayList<Pebble> pebbles) {
             this.playerHand=pebbles;
         }
@@ -331,10 +331,12 @@ public class PebbleGame {
         return totalPlayerNumber;
     }
 
+    //Function to return player array list
     public ArrayList<Player> getPlayerArrayList() {
         return playerArrayList;
     }
 
+    //Function to return all bags
     public ArrayList<ArrayList<Bag>> getAllBags() {
         return allBags;
     }
