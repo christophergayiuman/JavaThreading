@@ -61,7 +61,7 @@ class PebbleGameTest {
 
     @Test
     void discardPebble() {
-        // create
+        // create pebbles array
         Pebble p1 = new Pebble(1);
         Pebble p2 = new Pebble(2);
         Pebble p3 = new Pebble(3);
@@ -72,9 +72,15 @@ class PebbleGameTest {
         pebbles.add(p3);
         pebbles.add(p4);
 
-        player0.setPLayerHand(pebbles);
-
+        // fills player hand
+        player0.setPlayerHand(pebbles);
+        // checks getPlayerHand
         assertEquals(pebbles, player0.getPlayerHand());
+        assertEquals(4, player0.getPlayerHand().size());
+        player0.discardPebble();
+        //assertEquals(3, player0.getPlayerHand().size());
+
+
 
     }
 
