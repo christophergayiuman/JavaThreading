@@ -1,33 +1,25 @@
 package com.company;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class GameSetupTest {
+    GameSetup gameSetup = new GameSetup();
+
+    @BeforeEach
+    void setUp() {
+    }
 
     @Test
     void startingGameInfo() {
-
+        //gameSetup.
+        //gameSetup.getPlayersNo();
     }
 
     @Test
     void createBags() {
-        /**Bag testA = new Bag();
-        testA.Bag("A", new AtomicInteger(), true);
-        Bag testB = new Bag();
-        testB.Bag("B", new AtomicInteger(), true);
-        Bag testC = new Bag();
-        testC.Bag("C", new AtomicInteger(), true);
-        Bag testX = new Bag();
-        testX.Bag("X", new AtomicInteger(), false);
-        Bag testY = new Bag();
-        testY.Bag("Y", new AtomicInteger(), false);
-        Bag testZ = new Bag();
-        testZ.Bag("Z", new AtomicInteger(), false);
-
-        GameSetup gs = new GameSetup();
-        gs.createBags();
-        gs.getAllBags().get(1).get(0);
-        Assert.assertEquals(testA, A);**/
     }
 
     @Test
@@ -47,7 +39,11 @@ class GameSetupTest {
     }
 
     @Test
-    void checkUserInput() {
+    void checkBagContents() {
+    }
+
+    @Test
+    void checkUserinput() {
     }
 
     @Test

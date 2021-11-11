@@ -9,10 +9,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class GameSetup {
     // hardcoded starting game info for easier testing
-    private int playersNo = 3;
-    private String bag0FilePath = "src\\com\\company\\ex1.csv";
-    private String bag1FilePath = "src\\com\\company\\ex1.csv";
-    private String bag2FilePath = "src\\com\\company\\ex1.csv";
+    private int playersNo;// = 3;
+    private String bag0FilePath;// = "src\\com\\company\\ex1.csv";
+    private String bag1FilePath;// = "src\\com\\company\\ex1.csv";
+    private String bag2FilePath;// = "src\\com\\company\\ex1.csv";
     private ArrayList<ArrayList<Bag>> allbags;
 
 
@@ -141,7 +141,6 @@ public class GameSetup {
             if (Integer.parseInt(b) < 0) {
                 System.out.println("Files do not strictly contain positive weight");
             }
-
         }
 
     }

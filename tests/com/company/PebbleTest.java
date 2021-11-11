@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PebbleTest {
+    // create a pebble
     Pebble pebble = new Pebble(10);
 
     @Test
     void getWeight() {
+        // checks pebble weight
         assertEquals(10, pebble.getWeight());
     }
 
