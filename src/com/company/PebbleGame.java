@@ -1,5 +1,10 @@
 package com.company;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -8,10 +13,37 @@ import java.util.concurrent.TimeUnit;
 
 public class PebbleGame {
     private static int totalPlayerNumber;
-    private ArrayList<Player> playerArrayList;
+    private static ArrayList<Player> playerArrayList;
     private static ArrayList<ArrayList<Bag>> allBags;
     private static boolean gameWinner;
 
+
+    //Function that clears the log file
+    public static void clearLogFile(String strPlayerFileName){
+        try{
+            File file = new File(strPlayerFileName);
+            file.delete();
+            if (file.delete()){
+                System.out.println("File deleted sucessfully");
+            } else {
+                System.out.println("Failed to delete file");
+            }
+            System.out.println("Clear filename");
+        }catch (Exception e){
+            System.out.println(e);
+            System.out.println(e);
+            System.out.println(e);
+
+        }
+
+    }
+
+    //Function that builds the playeroutputfiles names
+    public String[] createPlayerOutputNames(){
+        totalPlayerNumber
+
+        return null;
+    }
 
     //Player class
     static class Player implements Runnable {
@@ -19,6 +51,47 @@ public class PebbleGame {
         private ArrayList<Pebble> playerHand;
         private int playerID;
         private int[] path;
+        private String playerFileName;
+
+
+        //set player filename
+        public void setPlayerFileName(String playerFileName){
+            this.playerFileName = playerFileName;
+        }
+
+        //get player filename
+        public String getPlayerFileName(){
+            return playerFileName;
+        }
+
+        //Append to LogFile
+        public void appendLog(String typeOfAction, String pebbleWeight, String bagName){
+            //Create the textfile name
+            StringBuilder playerFileName = new StringBuilder("player");
+            playerFileName.append(Integer.toString(playerID));
+            playerFileName.append("_");
+            playerFileName.append("output.txt");
+            String strPlayerFileName = playerFileName.toString();
+            setPlayerFileName(strPlayerFileName);
+
+            //Create the requested output
+            StringBuilder playerOutput = new StringBuilder("");
+            playerOutput.append("player" + playerID + " has "+ typeOfAction + " a " + pebbleWeight + " from bag " + bagName);
+
+            //Append the data to the existing files
+            Writer output;
+            try {
+                output = new BufferedWriter(new FileWriter(strPlayerFileName, true));
+                output.append(playerOutput.toString());
+                output.append("\n");
+                output.close();
+                System.out.println("Appended " + playerOutput.toString() + "Successfully.....");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
 
         //Constructor for player
         public Player(int playerID) {
@@ -63,26 +136,24 @@ public class PebbleGame {
         }
 
         public void discardPebble(){
-            System.out.println("10?: " + playerHand.size());
             //Change from black bag path to white bag path
             int[] whiteBagPebblePath = {0, getPlayerPath()[1]};
             int tempGenerateRandomNum = generateRandomNum(10);
+
+            //Append to log
+            appendLog("discard", String.valueOf(getPlayerHand().get(tempGenerateRandomNum).getWeight()),
+                    allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).getBagName());
+
+
+
             //Discard pebble from playerHand
             getPlayerHand().remove(tempGenerateRandomNum);
 
             synchronized (allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1])) {
                 //Adds pebble from playerHand to white bag
-                try {
-                    allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).getPebbles().add(getPlayerHand().get(tempGenerateRandomNum));
-                    allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).incrementWhiteBagSize();
-                } catch (Exception e) {
-                    System.out.println("b: " + playerHand.size());
-                    System.out.println(e);
-                }
-
-                System.out.println("A: " + playerHand.size());
+                allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).getPebbles().add(getPlayerHand().get(tempGenerateRandomNum));
+                allBags.get(whiteBagPebblePath[0]).get(whiteBagPebblePath[1]).incrementWhiteBagSize();
             }
-
         }
 
 
@@ -92,11 +163,17 @@ public class PebbleGame {
             int[] tempNewPebblePath= {1, generateRandomNum(3)};
 
             Bag bag = allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]);
+
             synchronized (bag) {
 
                 try {
                 //Random pebble generate number
                 int tempGenerateRandomNum = generateRandomNum(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().size());
+
+                //Append to log
+
+                String pebbleWeight = Integer.toString(allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getPebbles().get(tempGenerateRandomNum).getWeight());
+                appendLog("drawn", pebbleWeight, allBags.get(tempNewPebblePath[0]).get(tempNewPebblePath[1]).getBagName());
 
                 //Add to playerhand
                 Pebble tempPebble;
@@ -184,6 +261,11 @@ public class PebbleGame {
         @Override
         public void run() {
             fillPlayerHand();
+            for (int i = 0; i < playerArrayList.size(); i++) {
+                clearLogFile(playerArrayList.get(i).getPlayerFileName());
+            }
+            discardPebble();
+            getPlayerHand();
             while (!gameWinner) {
                 discardPebble();
                 getNewPebble();
@@ -223,14 +305,13 @@ public class PebbleGame {
         return  null;
     }**/
 
+
+    //Genreate random number
     public static Integer generateRandomNum(Integer Upperlimit) {
             //generate random number
             Random rand = new Random();
             return rand.nextInt(Upperlimit);
     }
-
-
-
 
     //Setter methods
     public void setTotalPlayerNumber(int totalPlayerNumber) {
@@ -263,6 +344,7 @@ public class PebbleGame {
         pg.setAllBags(gs.getAllbags());
         pg.createPlayerArray();
 
+
         // makes the players threads and executes it
         ExecutorService es = Executors.newFixedThreadPool(gs.getPlayersNo());
         for (Player player : pg.getPlayerArrayList()) es.execute(new Thread(player));
@@ -279,6 +361,7 @@ public class PebbleGame {
             System.out.println("Simulation ran for over 1 minute. \nSimulation" +
                     " could be impossible, it has been interrupted for log analysis.");
         }
+
 
     }
 

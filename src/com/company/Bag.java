@@ -51,6 +51,9 @@ public class Bag {
         pebbles.clear();
     }
 
+    public String getBagName(){
+        return bagName;
+    }
     @Override
     public String toString() {
         return "Bag{" +
