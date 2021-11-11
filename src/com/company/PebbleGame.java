@@ -1,11 +1,5 @@
-package com.company;
-
-//Imports below...
+package com.company;//Imports below...
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -179,7 +173,7 @@ public class PebbleGame {
 
         //Get new pebble functions
         public void getNewPebble(){
-//            System.out.println(Thread.currentThread().getName()+" : hand value = " + playerHandValue());
+            System.out.println(Thread.currentThread().getName()+" : hand value = " + playerHandValue());
             //Temp newPebblePath
             int[] tempNewPebblePath= {1, generateRandomNum(3)};
 
