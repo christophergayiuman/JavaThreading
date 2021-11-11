@@ -91,10 +91,22 @@ public class PebbleGame {
             //Append the data to the existing files
             Writer output;
             try {
+                //Appends the player output
                 output = new BufferedWriter(new FileWriter(strPlayerFileName, true));
                 output.append(playerOutput.toString());
                 output.append("\n");
+
+                //Appends the playerHandString
+                StringBuilder playerHandString = new StringBuilder();
+                playerHandString.append("player" + getPlayerID() + " hand is ");
+                for (int i = 0; i < getPlayerHand().size(); i++) {
+                    playerHandString.append(" "+ getPlayerHand().get(i).getWeight() + ", ");
+                }
+                output.append(playerHandString);
+                output.append("\n");
+                output.append("\n");
                 output.close();
+
                 System.out.println("Appended " + playerOutput.toString() + "Successfully.....");
             } catch (IOException e) {
                 e.printStackTrace();
