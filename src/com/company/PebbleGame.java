@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class PebbleGame {
+
     private static int totalPlayerNumber;
     private static ArrayList<Player> playerArrayList;
     private static ArrayList<ArrayList<Bag>> allBags;
