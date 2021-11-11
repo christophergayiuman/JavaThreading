@@ -356,7 +356,7 @@ public class PebbleGame {
         //gs.startingGameInfo();
         PebbleGame pg = new PebbleGame();
         pg.setTotalPlayerNumber(gs.getPlayersNo());
-        pg.setAllBags(gs.getAllbags());
+        pg.setAllBags(gs.getAllBags());
         pg.createPlayerArray();
 
         for (int i = 0; i < pg.createPlayerOutputNames().size(); i++) {
