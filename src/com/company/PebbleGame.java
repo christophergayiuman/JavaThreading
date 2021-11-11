@@ -173,7 +173,7 @@ public class PebbleGame {
 
         //Get new pebble functions
         public void getNewPebble(){
-            System.out.println(Thread.currentThread().getName()+" : hand value = " + playerHandValue());
+            //System.out.println(Thread.currentThread().getName()+" : hand value = " + playerHandValue());
             //Temp newPebblePath
             int[] tempNewPebblePath= {1, generateRandomNum(3)};
 

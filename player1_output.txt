@@ -1,36 +1,9 @@
-player1 has discard a 7 from bag B
-player1 hand is  18,  59,  48,  16,  36,  3,  7,  69,  53,  34, 
+player1 has discard a 49 from bag A
+player1 hand is  20,  4,  44,  1,  40,  47,  42,  50,  49,  54, 
 
-player1 has discard a 16 from bag B
-player1 hand is  18,  59,  48,  16,  36,  3,  69,  53,  34, 
+player1 has discard a 1 from bag A
+player1 hand is  20,  4,  44,  1,  40,  47,  42,  50,  54, 
 
-player1 has drawn a 58 from bag X
-player1 hand is  18,  59,  48,  36,  3,  69,  53,  34, 
-
-player1 has discard a 34 from bag A
-player1 hand is  18,  59,  48,  36,  3,  69,  53,  34,  58, 
-
-player1 has drawn a 13 from bag X
-player1 hand is  18,  59,  48,  36,  3,  69,  53,  58, 
-
-player1 has discard a 48 from bag A
-player1 hand is  18,  59,  48,  36,  3,  69,  53,  58,  13, 
-
-player1 has drawn a 88 from bag Y
-player1 hand is  18,  59,  36,  3,  69,  53,  58,  13, 
-
-player1 has discard a 58 from bag B
-player1 hand is  18,  59,  36,  3,  69,  53,  58,  13,  88, 
-
-player1 has drawn a 81 from bag Y
-player1 hand is  18,  59,  36,  3,  69,  53,  13,  88, 
-
-player1 has discard a 3 from bag B
-player1 hand is  18,  59,  36,  3,  69,  53,  13,  88,  81, 
-
-player1 has drawn a 85 from bag X
-player1 hand is  18,  59,  36,  69,  53,  13,  88,  81, 
-
-player1 has discard a 85 from bag A
-player1 hand is  18,  59,  36,  69,  53,  13,  88,  81,  85, 
+player1 has drawn a 48 from bag Z
+player1 hand is  20,  4,  44,  40,  47,  42,  50,  54, 
 

@@ -1,15 +1,57 @@
-player2 has discard a 47 from bag A
-player2 hand is  50,  20,  46,  47,  41,  51,  12,  27,  22,  21, 
+player2 has discard a 37 from bag A
+player2 hand is  7,  10,  27,  34,  30,  57,  60,  45,  37,  58, 
 
-player2 has discard a 27 from bag A
-player2 hand is  50,  20,  46,  41,  51,  12,  27,  22,  21, 
+player2 has discard a 10 from bag A
+player2 hand is  7,  10,  27,  34,  30,  57,  60,  45,  58, 
 
-player2 has drawn a 46 from bag Y
-player2 hand is  50,  20,  46,  41,  51,  12,  22,  21, 
+player2 has drawn a 19 from bag X
+player2 hand is  7,  27,  34,  30,  57,  60,  45,  58, 
 
-player2 has discard a 41 from bag B
-player2 hand is  50,  20,  46,  41,  51,  12,  22,  21,  46, 
+player2 has discard a 30 from bag A
+player2 hand is  7,  27,  34,  30,  57,  60,  45,  58,  19, 
 
-player2 has drawn a 45 from bag X
-player2 hand is  50,  20,  46,  51,  12,  22,  21,  46, 
+player2 has drawn a 73 from bag X
+player2 hand is  7,  27,  34,  57,  60,  45,  58,  19, 
+
+player2 has discard a 57 from bag A
+player2 hand is  7,  27,  34,  57,  60,  45,  58,  19,  73, 
+
+player2 has drawn a 98 from bag Z
+player2 hand is  7,  27,  34,  60,  45,  58,  19,  73, 
+
+player2 has discard a 27 from bag C
+player2 hand is  7,  27,  34,  60,  45,  58,  19,  73,  98, 
+
+player2 has drawn a 95 from bag Z
+player2 hand is  7,  34,  60,  45,  58,  19,  73,  98, 
+
+player2 has discard a 45 from bag C
+player2 hand is  7,  34,  60,  45,  58,  19,  73,  98,  95, 
+
+player2 has drawn a 58 from bag Y
+player2 hand is  7,  34,  60,  58,  19,  73,  98,  95, 
+
+player2 has discard a 58 from bag B
+player2 hand is  7,  34,  60,  58,  19,  73,  98,  95,  58, 
+
+player2 has drawn a 98 from bag X
+player2 hand is  7,  34,  60,  19,  73,  98,  95,  58, 
+
+player2 has discard a 19 from bag A
+player2 hand is  7,  34,  60,  19,  73,  98,  95,  58,  98, 
+
+player2 has drawn a 90 from bag Y
+player2 hand is  7,  34,  60,  73,  98,  95,  58,  98, 
+
+player2 has discard a 95 from bag B
+player2 hand is  7,  34,  60,  73,  98,  95,  58,  98,  90, 
+
+player2 has drawn a 76 from bag X
+player2 hand is  7,  34,  60,  73,  98,  58,  98,  90, 
+
+player2 has discard a 73 from bag A
+player2 hand is  7,  34,  60,  73,  98,  58,  98,  90,  76, 
+
+player2 has drawn a 99 from bag Z
+player2 hand is  7,  34,  60,  98,  58,  98,  90,  76, 
 

@@ -1,12 +1,11 @@
 package com.company;
 
-import com.company.PebbleGame;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.Assert.*;
+
 
 public class PebbleGameTest {
     PebbleGame pebbleGame = new PebbleGame();
