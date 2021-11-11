@@ -44,6 +44,10 @@ class GameSetupTest {
 
     @Test
     void getAllBags() {
+        // creates the bags in the gameSetup
+        createBags();
+
+        // fills local allBag array
         Bag A = new Bag();
         A.Bag("A", new AtomicInteger());
         Bag B = new Bag();
@@ -66,7 +70,8 @@ class GameSetupTest {
         allBag.add(0,whiteBags);
         allBag.add(1,blackBags);
 
-        //assertEquals(0,gameSetup.getAllBags());
+        // checks the allBag are the same
+        assertTrue(allBag.get(0).get(0).getBagName().equals(gameSetup.getAllBags().get(0).get(0).getBagName()));
     }
 
     @Test

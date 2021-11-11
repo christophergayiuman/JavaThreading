@@ -41,8 +41,6 @@ class PebbleGameTest {
         //Creates player array
         pebbleGame.createPlayerArray();
 
-
-
     }
 
     @Test
