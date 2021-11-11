@@ -9,13 +9,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BagTest {
-    Bag bag;
+    AtomicInteger testInt = new AtomicInteger();
+
+
+    //Bag bag = new Bag("X", testInt, false);
+
+
+
 
     @BeforeEach
     void setUp() {
-        bag = new Bag("x", 0, false);
-
-
     }
 
     @AfterEach
@@ -24,10 +27,12 @@ class BagTest {
 
     @Test
     void getPebbles() {
+
     }
 
     @Test
     void bag() {
+
     }
 
     @Test
