@@ -179,7 +179,7 @@ public class PebbleGame {
 
         //Get new pebble functions
         public void getNewPebble(){
-            System.out.println(Thread.currentThread().getName()+" : hand value = " + playerHandValue());
+//            System.out.println(Thread.currentThread().getName()+" : hand value = " + playerHandValue());
             //Temp newPebblePath
             int[] tempNewPebblePath= {1, generateRandomNum(3)};
 
@@ -343,8 +343,8 @@ public class PebbleGame {
 
     public static void main(String[] args) {
         GameSetup gs = new GameSetup();
+        gs.startingGameInfo();
         gs.createBags();
-        //gs.startingGameInfo();
         PebbleGame pg = new PebbleGame();
         pg.setTotalPlayerNumber(gs.getPlayersNo());
         pg.setAllBags(gs.getAllBags());
