@@ -257,6 +257,10 @@ public class PebbleGame {
         //Get player path
         public int[] getPlayerPath(){return path;}
 
+        public void setPLayerHand( ArrayList<Pebble> pebbles) {
+            this.playerHand=pebbles;
+        }
+
         //Get player bag
         public ArrayList<Pebble> getPlayerHand(){
             return playerHand;
@@ -358,12 +362,6 @@ public class PebbleGame {
             es.awaitTermination(1, TimeUnit.MINUTES);
         } catch( InterruptedException e ) {
             e.printStackTrace();
-        }
-        //If the game did not finish after 1 minute, stop the game.
-        if(!es.isTerminated()){
-            es.shutdownNow();
-            System.out.println("Simulation ran for over 1 minute. \nSimulation" +
-                    " could be impossible, it has been interrupted for log analysis.");
         }
 
 

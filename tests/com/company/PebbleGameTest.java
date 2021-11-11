@@ -57,11 +57,31 @@ class PebbleGameTest {
 
         //Checks if the set totalPlayerNumber is the not the same as getting the player number
         assertNotEquals(4, pebbleGame.getTotalPlayerNumber());
-
     }
 
     @Test
+    void discardPebble() {
+        // create
+        Pebble p1 = new Pebble(1);
+        Pebble p2 = new Pebble(2);
+        Pebble p3 = new Pebble(3);
+        Pebble p4 = new Pebble(4);
+        ArrayList<Pebble> pebbles = new ArrayList<>();
+        pebbles.add(p1);
+        pebbles.add(p2);
+        pebbles.add(p3);
+        pebbles.add(p4);
+
+        player0.setPLayerHand(pebbles);
+
+        assertEquals(pebbles, player0.getPlayerHand());
+
+    }
+
+
+    @Test
     void setAllBags() {
+
     }
 
     @Test
