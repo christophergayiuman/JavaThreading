@@ -15,6 +15,7 @@ public class GameSetup {
     private ArrayList<ArrayList<Bag>> allBags;
 
 
+    //This functions gets the inputs of the players and starts the game
     public void startingGameInfo() {
         System.out.println("""
                 Welcome to the PebbleGame!!
@@ -27,10 +28,13 @@ public class GameSetup {
         // get number of players
         while (true) {
             try {
+                //Scanner to get number of players
                 Scanner inputPlayerNo = new Scanner(System.in);
                 System.out.println("Please enter the number of players:");
                 String playerNo = inputPlayerNo.nextLine();
                 exitGame(playerNo);
+
+                //If the player number is not 0-9 or greater then 0 ask for re input
                 if (!playerNo.matches("[0-9]+") || Integer.parseInt(playerNo) < 1) {
                     System.out.println("Please enter a valid number of players.\n");
                     continue;
@@ -44,17 +48,20 @@ public class GameSetup {
         // get pebble weight file paths
         while (true) {
             try {
+                //Input prompt to get the location of first bag
                 Scanner inputCsvFiles = new Scanner(System.in);
                 System.out.println("Please enter location of bag number 0 to load:");
                 String bag0 = inputCsvFiles.nextLine();
                 exitGame(bag0);
                 if (checkUserInput(bag0)) continue;
 
+                //Input prompt to get the location of second bag
                 System.out.println("Please enter location of bag number 1 to load:");
                 String bag1 = inputCsvFiles.nextLine();
                 exitGame(bag1);
                 if (checkUserInput(bag1)) continue;
 
+                //Input prompt to get the third bag
                 System.out.println("Please enter location of bag number 2 to load:");
                 String bag2 = inputCsvFiles.nextLine();
                 exitGame(bag2);
@@ -96,6 +103,7 @@ public class GameSetup {
         ArrayList<Bag> whiteBags = new ArrayList<>();
         ArrayList<Bag> blackBags = new ArrayList<>();
 
+        //Adding the corresponding bags to their araylist slot, either white bag or black
         whiteBags.add(A); whiteBags.add(B); whiteBags.add(C);
         blackBags.add(X); blackBags.add(Y); blackBags.add(Z);
         allBag.add(0,whiteBags);
@@ -104,6 +112,7 @@ public class GameSetup {
         this.allBags = allBag;
     }
 
+    //Returns all bags
     public ArrayList<ArrayList<Bag>> getAllBags (){ return allBags; }
 
     // fills a bag with pebbles
@@ -113,7 +122,7 @@ public class GameSetup {
         }
     }
 
-    // reads pebble weights file
+    // reads pebble weights file and returns the weight of each pebble
     public String[] readPebbleWeightFile(String filePath) {
         String[] pebbleWeightList = null;
         try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -161,10 +170,12 @@ public class GameSetup {
             return false;
     }
 
+    //Set the total amount of players
     public void setPlayersNo(int playersNo) {
         this.playersNo = playersNo;
     }
 
+    //Get the total players
     public int getPlayersNo(){return playersNo;}
 
 }
